@@ -1,0 +1,26 @@
+<h2><%= user.name %>'s Todos</h2>
+
+<form method="post" action="/auth/logout" style="margin-bottom: 16px;">
+  <button type="submit">Logout</button>
+</form>
+
+<form method="post" action="/todos" class="row">
+  <input name="title" placeholder="New todo..." />
+  <button type="submit">Add</button>
+</form>
+
+<ul class="list">
+  <% todos.forEach(t => { %>
+    <li class="item">
+      <form method="post" action="/todos/<%= t._id %>/toggle" class="inline">
+        <button type="submit"><%= t.completed ? "Undo" : "Done" %></button>
+      </form>
+
+      <span class="<%= t.completed ? "done" : "" %>"><%= t.title %></span>
+
+      <form method="post" action="/todos/<%= t._id %>/delete" class="inline">
+        <button type="submit">Delete</button>
+      </form>
+    </li>
+  <% }) %>
+</ul>

@@ -1,0 +1,13 @@
+<h2>Login</h2>
+
+<% if (error) { %>
+  <p class="error"><%= error %></p>
+<% } %>
+
+<form method="post" action="/auth/login">
+  <input name="email" placeholder="Email" type="email" required />
+  <input name="password" placeholder="Password" type="password" required />
+  <button type="submit">Login</button>
+</form>
+
+<p><a href="/auth/register">Register</a></p>
