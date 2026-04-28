@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dev Vlog</title>
+    <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+    <header class="topbar">
+        <a class="brand" href="/">Dev Vlog</a>
+        <span id="status" class="status">Connecting...</span>
+    </header>
+
+    <main class="layout">
+        <section class="composer" aria-labelledby="create-title">
+            <div>
+                <p class="eyebrow">New entry</p>
+                <h1 id="create-title">Share your latest vlog</h1>
+            </div>
+
+            <form id="post-form">
+                <label>
+                    Title
+                    <input id="title" name="title" type="text" placeholder="Building my first API" required>
+                </label>
+
+                <div class="field-grid">
+                    <label>
+                        Author
+                        <input id="author" name="author" type="text" placeholder="Your name" required>
+                    </label>
+
+                    <label>
+                        Location
+                        <input id="location" name="location" type="text" placeholder="Delhi, remote, campus">
+                    </label>
+                </div>
+
+                <label>
+                    Vlog story
+                    <textarea id="content" name="content" rows="6" placeholder="What did you build, learn, or record today?" required></textarea>
+                </label>
+
+                <div class="field-grid">
+                    <label>
+                        Video URL
+                        <input id="videoUrl" name="videoUrl" type="url" placeholder="https://youtube.com/...">
+                    </label>
+
+                    <label>
+                        Image URL
+                        <input id="imageUrl" name="imageUrl" type="url" placeholder="https://images...">
+                    </label>
+                </div>
+
+                <button type="submit">Publish vlog</button>
+                <p id="form-message" class="form-message" role="status"></p>
+            </form>
+        </section>
+
+        <section class="feed" aria-labelledby="feed-title">
+            <div class="feed-head">
+                <div>
+                    <p class="eyebrow">Feed</p>
+                    <h2 id="feed-title">Recent vlogs</h2>
+                </div>
+                <button id="refresh" class="ghost" type="button">Refresh</button>
+            </div>
+
+            <div id="posts" class="posts"></div>
+        </section>
+    </main>
+
+    <template id="post-template">
+        <article class="post">
+            <img class="post-image" alt="">
+            <div class="post-body">
+                <div class="meta"></div>
+                <h3></h3>
+                <p class="content"></p>
+                <a class="video-link" target="_blank" rel="noreferrer">Watch vlog</a>
+            </div>
+        </article>
+    </template>
+
+    <script src="/script.js"></script>
+</body>
+</html>
